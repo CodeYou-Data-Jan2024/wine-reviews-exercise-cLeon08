@@ -8,10 +8,7 @@ count = wine_reviews.groupby('country').size()
 points_mean = wine_reviews.groupby('country')['points'].mean()
 
 #create summary of data that contains: name, # of reviews, and average points for each unique country
-reviews_sum = pd.DataFrame({
-    'country': count.index,
-    'count': count,
-    'points': points_mean.values.round(1)})
+reviews_sum = pd.DataFrame({'country': count.index,'count': count,'points': points_mean.values.round(1)})
 
 #set index of dataframe
 reviews_sum.set_index('country', inplace=True)
