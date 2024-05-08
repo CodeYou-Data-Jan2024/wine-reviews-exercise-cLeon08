@@ -3,11 +3,11 @@ import pandas as pd
 #read in data from given csv file
 wine_reviews = pd.read_csv("data/winemag-data-130k-v2.csv/winemag-data-130k-v2.csv")
 
-#create summary of data that contains: name, # of reviews, and average points for each unique country
+#determine the count of each country and the average of the points
 count = wine_reviews.groupby('country').size()
 points_mean = wine_reviews.groupby('country')['points'].mean()
 
-#creat dataframe
+#create summary of data that contains: name, # of reviews, and average points for each unique country
 reviews_sum = pd.DataFrame({
     'country': count.index,
     'count': count,
